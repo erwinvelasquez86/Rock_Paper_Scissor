@@ -1,26 +1,32 @@
 
 
 
-
-
-
-
 $('#rockbutton').click(function(){
+    //  $("#winner").text("")
+    // $("#player1").addClass("none")
+    //  $("#computer").addClass("none")
     console.log('click')
     turn('rock')
 })
 
 $('#paperbutton').click(function(){
+    // $("#winner").text("")
+    //  $("#player1").addClass("none")
+    //   $("#computer").addClass("none")
     console.log('click')
     turn('paper')
 })
 
 $('#scissorbutton').click(function(){
+    // $("#winner").text("")
+    // $("#player1").addClass("none")
+    //  $("#computer").addClass("none")
     console.log('click')
     turn('scissor')
 })
 
 function turn(choice){
+    console.log('choice',choice)
     console.log('turn')
     if (choice==="rock"){
         $("#player1").text("Rock")
@@ -52,12 +58,53 @@ function turn(choice){
         $("#computer").text("Scissor")
         $("#computer").removeClass("none")
 
-
       }
-
-    
-
+      checkWin()
+      
 }
+
+function checkWin(){
+    console.log ("checkWin")
+    var play1 = $("#player1").text()
+    var comp = $("#computer").text()
+    console.log('play1', play1)
+    console.log('comp', comp)
+
+    if (play1 === "Rock" && comp === "Paper"){
+        $(".victor").text("Computer Wins!")
+        return
+    }
+     if (play1 === "Paper" && comp === "Rock"){
+        $(".victor").text("Player1 Wins!")
+        return
+    }
+            if (play1 === "Scissor" && comp === "Paper"){
+        $(".victor").text("Player1 Wins!")
+        return
+    }
+        if (play1 === "Paper" && comp === "Scissor") {
+        $(".victor").text("Computer Wins!")
+        return
+    }
+            if (play1 === "Rock" && comp === "Scissor"){
+        $(".victor").text("Player1 Wins!")
+        return
+    }
+            if (play1 === "Scissor" && comp === "Rock"){
+        $(".victor").text("Computer Wins!")
+        return
+    }
+        if (play1 === comp){
+        $(".victor").text("Tie!")
+        return
+    }
+}
+
+
+
+
+
+
 
 
 
